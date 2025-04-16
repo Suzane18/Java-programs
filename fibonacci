@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class FibonacciOptimized {
+
+    public static void printFibonacciSequence(int n) {
+        if (n < 0) {
+            System.out.println("Please enter a non-negative integer.");
+            return;
+        }
+
+        int a = 0, b = 1;
+
+        System.out.print("Fibonacci sequence up to position " + n + ": ");
+
+        for (int i = 0; i <= n; i++) {
+            if (i == 0) {
+                System.out.print(a);
+            } else if (i == 1) {
+                System.out.print(" " + b);
+            } else {
+                int next = a + b;
+                System.out.print(" " + next);
+                a = b;
+                b = next;
+            }
+        }
+
+        System.out.println(); // for newline
+        System.out.println("Fibonacci number at position " + n + " is: " + b);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter integer: ");
+        int n = scanner.nextInt();
+
+        printFibonacciSequence(n);
+
+        scanner.close();
+    }
+}
